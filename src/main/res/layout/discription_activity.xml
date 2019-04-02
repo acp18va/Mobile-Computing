@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="imageDescriptionViewModel"
+            type="uk.ac.shef.oak.com6510.imagelocator.viewmodel.ImageDescriptionViewModel"></variable>
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@{imageDescriptionViewModel.imageUrl}"
+                android:contentDescription="@{imageDescriptionViewModel.imageDescription}"
+                />
+            <EditText
+                android:id="@+id/etTitle"
+                android:layout_marginTop="10dp"
+                android:text="@{imageDescriptionViewModel.imageTitle}"
+                android:layout_width="match_parent"
+                android:hint="@string/enter_title"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/etDiscription"
+                android:layout_marginTop="10dp"
+                android:text="@{imageDescriptionViewModel.imageDescription}"
+                android:layout_width="match_parent"
+                android:hint="@string/enter_description"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="top"
+                android:gravity="top|left"
+                android:layout_height="150dp" />
+
+            <Button
+                android:id="@+id/btSave"
+                android:layout_width="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:textAllCaps="false"
+                android:layout_height="wrap_content"
+                android:text="@string/save"/>
+        </LinearLayout>
+    </ScrollView>
+</layout>

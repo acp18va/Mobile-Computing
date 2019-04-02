@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+    <variable
+        name="imageDetailViewModel"
+        type="uk.ac.shef.oak.com6510.imagelocator.viewmodel.ImageDetailViewModel"/>
+  </data>
+
+  <android.support.design.widget.CoordinatorLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:weightSum="3"
+    android:orientation="horizontal"
+    android:layout_height="match_parent">
+
+
+
+      <LinearLayout
+          android:layout_width="0dp"
+          android:layout_weight="2"
+          android:orientation="vertical"
+          android:layout_height="match_parent"
+          android:id="@+id/linear_main"
+
+      >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="false"
+
+            app:imageUrl="@{imageDetailViewModel.pictureProfile}"
+
+        />
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_collapseMode="pin"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+      </LinearLayout>
+
+<LinearLayout
+    android:layout_width="0dp"
+    android:layout_marginLeft="3dp"
+    android:layout_weight="1"
+    android:orientation="vertical"
+
+    android:layout_height="match_parent">
+
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textStyle="bold"
+      android:text="TITLE"
+      />
+  <EditText
+      android:layout_width="match_parent"
+      android:id="@+id/et_title"
+      android:layout_height="wrap_content" />
+
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_marginTop="10dp"
+      android:layout_height="wrap_content"
+      android:text="DESCRIPTION"
+      android:textStyle="bold"
+      />
+  <EditText
+      android:layout_width="match_parent"
+      android:id="@+id/et_description"
+      android:textSize="10dp"
+      android:layout_height="170dp" />
+    <Button
+        android:id="@+id/btSave"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:layout_height="wrap_content"
+        android:text="@string/save"/>
+  <fragment
+      android:id="@+id/map_location"
+      android:layout_marginTop="4dp"
+      android:name="com.google.android.gms.maps.MapFragment"
+      android:layout_width="match_parent"
+      android:layout_height="90dp"
+
+     />
+</LinearLayout>
+</LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:onClick="@{imageDetailViewModel::onClickFabLoadInfo}"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_dialog_info"
+        app:fabSize="normal"
+    />
+  </android.support.design.widget.CoordinatorLayout>
+
+</layout>

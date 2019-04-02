@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+        name="mainViewModel"
+        type="uk.ac.shef.oak.com6510.imagelocator.viewmodel.ImageViewModel"/>
+  </data>
+
+  <android.support.design.widget.CoordinatorLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+      <android.support.v7.widget.Toolbar
+          android:id="@+id/toolbar"
+          android:layout_width="match_parent"
+          android:layout_height="?attr/actionBarSize"
+          android:background="?attr/colorPrimary"
+          app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+      <LinearLayout
+          android:background="@drawable/white_rounded_bg"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@null"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:layout_centerInParent="true"
+            android:hint="Search with Title and Description"
+            app:visibility="@{mainViewModel.textSearch}"
+            android:id="@+id/search_text"/>
+        <ImageView
+            android:id="@+id/imSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_vertical"
+            android:onClick="filterData"
+            android:layout_alignParentRight="true"
+            android:src="@android:drawable/ic_menu_search"
+            android:layout_toRightOf="@+id/search_text"/>
+      </LinearLayout>
+      <ProgressBar
+          android:id="@+id/progress_image"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:visibility="@{mainViewModel.imageProgress}"/>
+
+      <TextView
+          android:id="@+id/label_status"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:text="@{mainViewModel.messageLabel}"
+          app:visibility="@{mainViewModel.imageLabel}"/>
+
+      <android.support.v7.widget.RecyclerView
+          android:id="@+id/list_image"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:clipToPadding="false"
+          android:scrollbars="vertical"
+          app:layout_behavior="@string/appbar_scrolling_view_behavior"
+          app:visibility="@{mainViewModel.imageRecycler}"
+          tools:listitem="@layout/item_image"/>
+
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="80dp"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:onClick="@{mainViewModel::onClickFabLoadMap}"
+        android:src="@android:drawable/ic_dialog_map"/>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+
+        android:layout_margin="@dimen/fab_margin"
+        android:onClick="@{mainViewModel::onClickFabLoad}"
+        android:src="@android:drawable/ic_menu_camera"/>
+
+  </android.support.design.widget.CoordinatorLayout>
+
+</layout>

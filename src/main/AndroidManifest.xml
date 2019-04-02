@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="uk.ac.shef.oak.com6510.imagelocator">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+    <application
+        android:allowBackup="true"
+        android:name=".ImageApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:hardwareAccelerated="false"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="uk.ac.shef.oak.com6510.imagelocator.view.ImageActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="uk.ac.shef.oak.com6510.imagelocator.view.ImageDetailActivity"
+
+            android:parentActivityName="uk.ac.shef.oak.com6510.imagelocator.view.ImageActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name="uk.ac.shef.oak.com6510.imagelocator.view.ImageMapActivity"
+
+            android:parentActivityName="uk.ac.shef.oak.com6510.imagelocator.view.ImageActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name="uk.ac.shef.oak.com6510.imagelocator.view.DiscriptionActivity"
+
+            android:parentActivityName="uk.ac.shef.oak.com6510.imagelocator.view.ImageActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyD9kDSbIyv5wgJo15eHPgZAzimns350mt8"/>
+    </application>
+
+</manifest>

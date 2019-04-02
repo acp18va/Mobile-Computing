@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ImageLocator</string>
+    <string name="error_loading_people">There seems to have been some error.</string>
+    <string name="default_loading_people">Press the button to load people!</string>
+    <string name="cancel">Cancel</string>
+    <string name="allow">Allow</string>
+    <string name="pleasse_give_permission_to_storage">Please give permission to storage</string>
+    <string name="enter_description">Enter Description</string>
+    <string name="save">Save</string>
+    <string name="nothing_click">Nothing click</string>
+    <string name="enter_title">Enter Title</string>
+</resources>
